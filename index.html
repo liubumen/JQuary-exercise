@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuary-exercise</title>
+</head>
+<body>
+    <div>
+        <h1>選擇器練習</h1>
+        <button>element選擇器</button>
+        <button id="id-selector">id選擇器</button>
+        <button class="class-selector">class選擇器</button>
+    </div>
+    <!--選擇器練習-->
+    <span id="hellow">1234</span>
+    <script lang="text/javascript" src="js/JQuary-min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $('button').on('click',function(){
+
+                alert($(this).text());
+
+            });
+
+            $('#id-selector').on('click',function(){
+                alert('id-selector'+$(this).text());
+
+            });
+
+            $('.class-selector').on('click',function(){
+                alert('class-selector'+$(this).text());
+
+            });
+
+        });
+       
+    </script>
+</body>
+</html>
