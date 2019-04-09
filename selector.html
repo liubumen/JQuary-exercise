@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuary選擇器練習</title>
+    <script lang="text/javascript" src="js/JQuary-min.js"></script>
+    <script>
+        function show_alert(btnObj,value)
+        {
+            alert($(btnObj).attr('id')+":"+value);
+        }
+    </script>
+</head>
+<body>
+        <h1>選擇器練習</h1>
+        <button id="element-selector">element選擇器</button>
+        <button id="id-selector">id選擇器</button>
+        <button id="class-selector" class="class-selector">class選擇器</button>
+        
+        <script>
+                $(document).ready(function(){
+        
+                    $('button').on('click',function(){
+        
+                        show_alert(this,$(this).text());
+        
+                    });
+        
+                    $('#id-selector').on('click',function(){
+                        show_alert(this,$(this).text());
+        
+                    });
+        
+                    $('.class-selector').on('click',function(){
+                        show_alert(this,$(this).text());
+        
+                    });
+        
+                });
+        
+        </script>
+        <!--屬性-->
+        <h3>屬性</h3>
+        <div>
+            <input type="text" name="username" value="Elmer">
+            <button id="attr-selector">屬性選擇器</button>
+        </div>
+
+        <script>
+            $('#attr-selector').click(function(){
+                show_alert(this,$('input[name="username"]').val());
+               
+            });
+            
+        </Script>
+        <!--OR-->
+        <h3>OR</h3>
+        <div>
+            <span id="title">我是標題</span>
+            <span id="content">我是內容</span>
+            <button id="or-selector">OR 選擇器</button>
+        </div>
+        <script>
+            $('#or-selector').click(function(){
+                
+                show_alert(this,$('#title,#content').text());
+            });
+        </script>
+        <!--AMD-->
+        <h3>AMD</h3>
+        <div>
+                <span class="container text-info">我只是文字</span>
+                <button id="and-selector">AND 選擇器</button>
+        </div>
+        <script>
+                $('#and-selector').click(function(){
+                    
+                    show_alert(this,$('span.container.text-info').text());
+                });
+            </script>
+        <!--子孫-->
+        <h3>子孫</h3>
+        <div class="section">
+            <p>
+                <span>段落內的文字</span>
+                <button id="child-selector">子孫選擇器</button>
+            </p>
+        </div>
+        <script>
+                $('#child-selector').click(function(){
+                    
+                    show_alert(this,$('div.section p span').text());
+                });
+            </script>
+
+
+</body>
+</html>
