@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery API練習</title>
+    <script lang="text/javascript" src="js/JQuary-min.js"></script>
+    <style>
+            .active {
+                color:blue;
+            }
+            .text-warning {
+                color:coral;
+            }
+            .text-error {
+                color:red;
+            }
+            
+        </style>    
+    
+</head>
+<body>
+    <h1>JQuery API練習</h1>
+    
+    <h3>css 相關函數</h3>
+
+    <div>
+        <span>我是文字</span>
+        <button id="css-active">激活</button>
+        <button id="css-active-back">復原</button>
+        <button id="css-active-toggle">切換</button>
+    </div>
+    
+    <script>
+    
+    $('#css-active').click(function(){
+        $(this).parent().children('span').addClass('active')
+    });
+    $('#css-active-back').click(function(){
+        $(this).parent().children('span').removeClass('active')
+    });
+    $('#css-active-toggle').click(function(){
+        $(this).parent().children('span').toggleClass('active')
+    });
+    </script>
+
+    <h5>判斷Class存在</h5>
+    
+    <ul id='css-has'>
+        <li>一般</li>
+        <li class="text-warning">警告</li>
+        <li class="text-error">錯誤</li>
+
+    </ul>
+
+    <script>
+       $('#css-has').children().each(function(k,li){
+            
+        var color ='white';
+        var baColor = 'blue';
+        
+        if($(li).hasClass('text-warning')){
+
+            baColor = 'orange';            
+        }
+        if($(li).hasClass('text-error')){
+
+            baColor = 'red';  
+
+        }
+        $(li).css('background-color',baColor).css('color',color);
+       });
+
+    </script>
+    <h5>新增原素</h5>
+    <ol id="jq-append">
+    </ol>
+    <script>
+        var hh = $('<li/>').text('HHH');
+        //第一種
+        $('#jq-append').append(hh);
+        $('#jq-append').append(hh.clone());
+        $('#jq-append').append(hh.clone());
+        //第二種
+        hh.clone().text('aa').appendTo('#jq-append');
+
+        //prepend
+        $('#jq-append').prepend(hh.clone().text('prep'));
+        //prependTo
+        hh.clone().text('prep to').prependTo('#jq-append');
+    </script>
+    <h5>顯示 /隱藏元素</h5>
+    <div>
+        <span>Hellow</span>
+        <button id="css-hide">隱藏</button>
+        <button id="css-show">顯示</button>
+        <button id="css-toggle">切換</button>        
+    </div>
+    <script>
+        $('#css-hide').click(function(){
+           $(this).parent().children('span').hide(); 
+        });
+        $('#css-show').click(function(){
+           $(this).parent().children('span').show(); 
+        });
+        $('#css-toggle').click(function(){
+           $(this).parent().children('span').toggle('show'); 
+        });
+
+    </script>
+   
+</body>
+</html>
