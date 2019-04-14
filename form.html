@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquary with form</title>
+</head>
+<body>
+    <h1>JQuary表單應用</h1>
+    <!---->
+    <form action="" method="" >
+    <fieldset>
+        <label for="data-account"type="text">帳號</label>
+        <input id="data-account"type="text" name="account" placeholder="請輸入帳號">
+    </fieldset>
+        <label>密碼</label>
+        <input id="data-account"type="text" name="account" placeholder="請輸入密碼">
+        <input type="submitt" value="送出">
+        <input type="reset" value="重設">
+    </form>
+    <script>
+    
+        $('form').on('submit',function(event){
+            var valid = true;
+            //-----------------驗證邏輯
+            var data = $(this).serializeArray();
+
+            if(valid === false){
+                //中止事件
+                event.preventDefault();
+            }
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQuery ajax</title>
+    <script lang="text/javascript" src="js/JQuary-min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        //ajax 異步傳輸
+        //$('selector').load
+        //load resource => url
+        //
+        $('container').load('https://tw.yahoo.com')
+        //$.get
+            $.get('js/data.js',function(response,message,http){
+                if(http.state ===200)
+                {
+                    console.log(arguments);
+                    console.log(response);
+                }else{
+                    alert('請求失敗:['+https.status+"]"+message);
+                }
+            });
+        //$.post
+        
+        $.ajax({
+            url:'js/datal.js',
+            method:'post',
+            type:'json',
+            success: function(response,message,http){
+                if(typeof response === 'string')
+                {
+                    response=JSON.parse(response);
+                }
+                console.log(response);
+                console.log(response/name);
+            },
+            error: function(XHR,status,statusTest){
+                console.log(XHR);
+                alert('請求失敗:['+ XHR.status + "]"+ statustest);
+            }
+        });
+    </script>
+</body>
+</html>
